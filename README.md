@@ -17,6 +17,7 @@ Stitching parts of the workflow will certainly benefit from a strong GPU (or pot
 
 # INSTALLATION #
 
+## WINDOWS ##
 - Install Chocolatey https://chocolatey.org/install
 - Install Python 3 `choco install python`
 - Upgrade pip `python -m pip install --upgrade pip`
@@ -26,6 +27,14 @@ Stitching parts of the workflow will certainly benefit from a strong GPU (or pot
 - Install MediaInfo CLI `choco install mediainfo-cli`
 - Move to the directory where you cloned hustler `cd c:\osc\hustler`
 - Install Python dependencies: `python -m pipenv install`
+
+## MacOs (for development) ##
+- Install Homebrew:
+- Install ffmpeg with extra libraries: `brew install ffmpeg --with-freetype`
+- Install mediainfo: `brew install mediainfo`
+- Install java8: `brew install java8`
+- Install jenkins: `brew install jenkins`
+- Install Blue Ocean plugin for Jenkins
 
 # USAGE #
 
