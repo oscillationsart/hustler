@@ -14,12 +14,12 @@ CAM_DIRS = ["CamA.*", "CamB.*", "CamC.*", "CamD.*", "CamE.*", "CamF.*", "CamG.*"
 MAX_LENGTH = 100500
 
 # Instantiate the parser
-parser = argparse.ArgumentParser(description="This script renames and/or creates links for WonderStitch batch outputs ")
-parser.add_argument("input", type=str, help="Directory with the input folders from Z Cam")
-parser.add_argument("out", type=str, nargs='?', default="", help="Directory for organized output files")
-parser.add_argument("-t", "--test", action="store_true", help="Test input files and not do any organizing. Works best with ommitted 'out' argument")
+PARSER = argparse.ArgumentParser(description="This script renames and/or creates links for WonderStitch batch outputs ")
+PARSER.add_argument("input", type=str, help="Directory with the input folders from Z Cam")
+PARSER.add_argument("out", type=str, nargs='?', default="", help="Directory for organized output files")
+PARSER.add_argument("-t", "--test", action="store_true", help="Test input files and not do any organizing. Works best with ommitted 'out' argument")
 
-args = parser.parse_args()
+args = PARSER.parse_args()
 
 logger = Logger.get_logger("organize_raw_zcam", True)
 
@@ -82,11 +82,11 @@ def create_sorted_structure(directory, output=""):
         if (frames != frames_reference):
           errors += 1
           logger.warning("File {} has {} frames, but reference is {}".format(cam_file_name, frames, frames_reference))
-  return(errors)
+  return errors
 
-if (args.test):
+if args.test:
   test_out = test_input(args.input)
   sys.exit(test_out)
 else:
   sort_out = create_sorted_structure(args.input, args.out)
-  sys.exit(sort_out)
+  SystemExit(sort_out)
